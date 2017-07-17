@@ -4,6 +4,7 @@ Angular 1.5 template using npm, gulp, Typescript, Scss, Angular, and Webpack
 ## Dependencies
 Requires:
 * [nodejs] (https://nodejs.org/en/)
+* [npm] (https://www.npmjs.com)
 * [git] (https://git-scm.com/downloads)
 
 ## Setup
