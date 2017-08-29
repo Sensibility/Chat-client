@@ -1,18 +1,35 @@
 var ws = new WebSocket("ws://superphage.us:6969/");
 var messages = document.getElementById('messages');
 ws.onmessage = function (event) {
+	console.log("Message Incoming: ", event);
 	var messages = document.getElementById('messages');
 	var message = document.createElement('div');
-	message.className = "message"
-	var content = document.createTextNode(event.data);
-	message.appendChild(content);
+	var messageContent = document.createElement('span');
+	messageContent.className = "messagecontent"; //freaking case-sensitivity is inconsistent smh tbh
+	message.className = "message";
+	var who = document.createElement('span');
+	who.className = "username";
+	var when = document.createElement('span');
+	when.className = "timestamp";
+	response = JSON.parse(event.data);
+	var content = document.createTextNode(response.text);
+	var userContent = document.createTextNode(response.sender);
+	var hour = (new Date(response.date)).getHours();
+	var minute = (new Date(response.date)).getMinutes();
+	var timeContent = document.createTextNode('@ '+String(hour)+':'+String(minute));
+	who.appendChild(userContent);
+	message.appendChild(who);
+	when.appendChild(timeContent);
+	message.appendChild(when);
+	messageContent.appendChild(content);
+	message.appendChild(messageContent);
 	messages.appendChild(message);
 };
 sendMessage = function () {
 	var msg = {
 		type: "textmsg",
 		text: document.getElementById("compose").value,
-		date: Date.now()
+		date: new Date()
 	}
 	ws.send(JSON.stringify(msg));
 	document.getElementById("compose").value = "";
@@ -24,7 +41,6 @@ setNickname = function () {
 	if (!nickname) {
 		return false;
 	}
-	console.log(nickname)
 	var msg = {
 		type: "login",
 		text: nickname,

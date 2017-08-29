@@ -33,9 +33,20 @@ div.message {
 	height: auto;
 }
 
+div.message span {
+	padding: 5px;
+}
+
+span.username {
+	color: #04EFE6;
+}
+
+span.timestamp {
+	color: red;
+}
+
 textarea#compose {
-	left: 2px;
-	right: 2px;
+	width: 100%;
 	position: absolute;
 	bottom: 2px;
 	height: 20px;
