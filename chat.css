@@ -53,4 +53,9 @@ div#nickname_modal {
 	margin-top: -150px;
 	z-index: 999999;
 	background-color: white;
+	text-align: center;
+}
+
+input#nickname {
+	width: 95%;
 }
