@@ -1,0 +1,11 @@
+div#titlebar {
+	width: 100%;
+	background-color: aqua;
+	height: 20px;
+	text-align: center;
+}
+
+div.messages {
+	width: 100%;
+	height: calc(100%-20px);
+}

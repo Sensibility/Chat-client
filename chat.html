@@ -3,21 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Chat</title>
+	<script type="text/javascript" src="chat.js"></script>
+	<link rel="stylesheet" type="text/css" href="chat.css">
 </head>
 
 <body style="margin:0">
-	<script type="text/javascript">
-		var ws = new WebSocket("ws://superphage.us:6969/");
-		var messages = document.getElementById('messages');
-		ws.onmessage = function (event) {
-			var messages = document.getElementById('messages');
-			var message = document.createElement('li');
-			var content = document.createTextNode(event.data);
-			message.appendChild(content);
-			messages.appendChild(message);
-		};
-	</script>
-	Messages:
-	<ul id="messages"></ul>
+	<div id="titlebar">SuperPhage</div>
+	<div id="messages"></div>
 </body>
 </html>
