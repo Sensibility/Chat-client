@@ -1,11 +1,18 @@
+body {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
 div#titlebar {
 	width: 100%;
-	background-color: aqua;
+	background-color: #04EFE6;
 	height: 20px;
 	text-align: center;
 }
 
-div.messages {
+div#messages {
 	width: 100%;
 	height: calc(100%-20px);
+	overflow-y: scroll;
 }
