@@ -19,10 +19,12 @@ sendMessage = function () {
 }
 
 setNickname = function () {
-	var nickname = document.getElementById("nickname").value;
+	var nickname = document.getElementById("nickname").value.replace('\n','').replace('\r','');
+	document.getElementById("nickname").value = "";
 	if (!nickname) {
 		return false;
 	}
+	console.log(nickname)
 	var msg = {
 		type: "login",
 		text: nickname,
