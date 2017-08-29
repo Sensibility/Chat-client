@@ -8,3 +8,26 @@ ws.onmessage = function (event) {
 	message.appendChild(content);
 	messages.appendChild(message);
 };
+sendMessage = function () {
+	var msg = {
+		type: "textmsg",
+		text: document.getElementById("compose").value,
+		date: Date.now()
+	}
+	ws.send(JSON.stringify(msg));
+	document.getElementById("compose").value = "";
+}
+
+setNickname = function () {
+	var nickname = document.getElementById("nickname").value;
+	if (!nickname) {
+		return false;
+	}
+	var msg = {
+		type: "login",
+		text: nickname,
+		date: Date.now()
+	}
+	ws.send(JSON.stringify(msg))
+	document.getElementById("nickname_modal").style.display = "none";
+}

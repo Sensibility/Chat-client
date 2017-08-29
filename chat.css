@@ -6,6 +6,7 @@ body {
 	min-height: 100%;
 	min-width: 100%;
 	overflow: hidden;
+	background-color: #C3C4C4;
 }
 
 div#titlebar {
@@ -18,14 +19,38 @@ div#titlebar {
 }
 
 div#messages {
-	width: 100%;
+	left: 2px;
+	right: 2px;
 	position: absolute;
-	bottom: 0;
+	bottom: 22px;
 	top: 20px;
 	overflow-y: scroll;
+	background-color: #C3C4C4;
 }
 
 div.message {
 	width: 100%;
 	height: auto;
+}
+
+textarea#compose {
+	left: 2px;
+	right: 2px;
+	position: absolute;
+	bottom: 2px;
+	height: 20px;
+	overflow-y: scroll;
+	border-radius: 10px;
+}
+
+div#nickname_modal {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	left: 50%;
+	top: 50%; 
+	margin-left: -150px;
+	margin-top: -150px;
+	z-index: 999999;
+	background-color: white;
 }
