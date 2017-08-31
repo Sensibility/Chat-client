@@ -1,25 +1,18 @@
-# angularTemplate
-Angular 1.5 template using npm, gulp, Typescript, Scss, Angular, and Webpack
+# Chat Client - Desktop
 
 ## Dependencies
 Requires:
 * [nodejs] (https://nodejs.org/en/)
 * [npm] (https://www.npmjs.com)
-* [git] (https://git-scm.com/downloads)
 
 ## Setup
-In the console of your choosing run the following
+Run the following
 ```
-git clone https://github.com/shamrickus/angularTemplate.git
-cd angularTemplate/
+git clone --depth 1 https://github.com/Sensibility/Chat-client.git
+cd Chat-client/
 npm install
-gulp
+npm start
 ```
 And you'll be all set up!
-
-To unlink to this repo make sure to run
-`git remote remove origin`
-
-You will also need to update the Readme/License!
 
 
