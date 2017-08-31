@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <script type="text/javascript" src="chat.js"></script>
+    <link rel="stylesheet" type="text/css" href="chat.css">
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <div id="nickname_modal">
+      <h2>Set your nickname!</h2>
+      <input type="text" autofocus="true" placeholder="XxXSaSuKe__KiLLa__420__MemeArmyXxX" id="nickname" spellcheck="false" onkeypress="if (event.keyCode === 13) { setNickname(); }"></input>
+    </div>
+    <div id="titlebar">SuperPhage</div>
+    <div id="messages"></div>
+    <textarea id="compose" spellcheck="true" placeholder="Send to channel..." onkeypress="if (event.keyCode === 13) { sendMessage(); }"></textarea>
+  </body>
+
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+</html>
