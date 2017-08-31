@@ -12,11 +12,10 @@ ws.onmessage = function (event) {
 	var when = document.createElement('span');
 	when.className = "timestamp";
 	response = JSON.parse(event.data);
+	var timestamp = new Date(parseFloat(response.date))
 	var content = document.createTextNode(response.text);
 	var userContent = document.createTextNode(response.sender);
-	var hour = (new Date(response.date)).getHours();
-	var minute = (new Date(response.date)).getMinutes();
-	var timeContent = document.createTextNode('@ '+String(hour)+':'+String(minute));
+	var timeContent = document.createTextNode('@ '+timestamp.getHours()+':'+timestamp.getMinutes());
 	who.appendChild(userContent);
 	message.appendChild(who);
 	when.appendChild(timeContent);
