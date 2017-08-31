@@ -47,3 +47,40 @@ setNickname = function () {
 	ws.send(JSON.stringify(msg))
 	document.getElementById("nickname_modal").style.display = "none";
 };
+
+//Check for voip capability
+if (navigator.mediaDevices) {
+	console.log("devices found; attempting voip");
+
+	var constraints = { audio: true };
+	var chunks = [];
+
+	navigator.mediaDevices.getUserMedia(constraints).then(
+		function(stream) {
+			var mediaRecorder = new MediaRecorder(stream);
+
+			visualize(stream);
+
+			record.onclick = function() {
+				mediaRecorder.start();
+				console.log("Recorder started...")
+				console.log(mediaRecorder.state);
+				record.style.background = "red";
+				record.style.color = "black";
+			};
+
+			mediaRecorder.ondataavailable = function(event) {
+				console.log("we got us some audio!");
+				console.log(event);
+				console.log(event.data);
+				chunks.push(event.data);
+			}
+
+		}).catch(function(error) {
+			console.log("Something wicked happened... : "+error);
+		});
+
+}
+else {
+	console.log("No devices found, voip impossible");
+}
