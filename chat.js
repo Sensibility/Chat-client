@@ -23,6 +23,7 @@ ws.onmessage = function (event) {
 	messageContent.appendChild(content);
 	message.appendChild(messageContent);
 	messages.appendChild(message);
+	messages.scrollTop = messages.scrollHeight;
 };
 sendMessage = function () {
 	var msg = {
@@ -31,7 +32,7 @@ sendMessage = function () {
 	}
 	ws.send(JSON.stringify(msg));
 	document.getElementById("compose").value = "";
-}
+};
 
 setNickname = function () {
 	var nickname = document.getElementById("nickname").value.replace('\n','').replace('\r','');
@@ -45,4 +46,4 @@ setNickname = function () {
 	}
 	ws.send(JSON.stringify(msg))
 	document.getElementById("nickname_modal").style.display = "none";
-}
+};
