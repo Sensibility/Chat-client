@@ -59,14 +59,17 @@ if (navigator.mediaDevices) {
 		function(stream) {
 			var mediaRecorder = new MediaRecorder(stream);
 
-			mediaRecorder.start();
+			mediaRecorder.start(1000);
 
 			console.log("Started recording sound. May god have mercy on my soul.");
 
 			mediaRecorder.ondataavailable = function(event) {
 				console.log("we got us some audio!");
+				audio = document.getElementById('speaker');
+				audio.src = URL.createObjectURL(event.data);
+				audio.load();
+				audio.play();
 				console.log(event);
-				console.log(event.data);
 				chunks.push(event.data);
 			};
 
