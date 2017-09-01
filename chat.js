@@ -59,22 +59,16 @@ if (navigator.mediaDevices) {
 		function(stream) {
 			var mediaRecorder = new MediaRecorder(stream);
 
-			visualize(stream);
+			mediaRecorder.start();
 
-			record.onclick = function() {
-				mediaRecorder.start();
-				console.log("Recorder started...")
-				console.log(mediaRecorder.state);
-				record.style.background = "red";
-				record.style.color = "black";
-			};
+			console.log("Started recording sound. May god have mercy on my soul.");
 
 			mediaRecorder.ondataavailable = function(event) {
 				console.log("we got us some audio!");
 				console.log(event);
 				console.log(event.data);
 				chunks.push(event.data);
-			}
+			};
 
 		}).catch(function(error) {
 			console.log("Something wicked happened... : "+error);
