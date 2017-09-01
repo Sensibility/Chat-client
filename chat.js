@@ -70,6 +70,11 @@ if (navigator.mediaDevices) {
 				chunks.push(event.data);
 			};
 
+			mediaRecorder.onerror = function(event) {
+				console.log("Whoops. An accident.");
+				console.log(event);
+			};
+
 		}).catch(function(error) {
 			console.log("Something wicked happened... : "+error);
 		});
