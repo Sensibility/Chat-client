@@ -1,4 +1,5 @@
 body {
+    font-family: arial, sans-serif;
 	height: 100%;
 	width: 100%;
 	max-width: 100%;
@@ -6,7 +7,7 @@ body {
 	min-height: 100%;
 	min-width: 100%;
 	overflow: hidden;
-	background-color: #C3C4C4;
+	background-color: #333;
 }
 
 div#titlebar {
@@ -22,12 +23,13 @@ div#messages {
 	left: 2px;
 	right: 2px;
 	position: absolute;
-	bottom: 22px;
+	bottom: 35px;
 	top: 20px;
 	margin: 10px;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	background-color: #C3C4C4;
+	background-color: #333;
+    color: #fff;
 }
 
 div.message {
@@ -49,29 +51,39 @@ span.timestamp {
 }
 
 textarea#compose {
+    background-color: #555;
+    font-family: inherit;
+    border: none;
+    padding: .5em;
 	width: 99%;
+    color: #fff;
 	position: absolute;
 	bottom: 2px;
 	height: 20px;
 	overflow-y: scroll;
-	border-radius: 10px;
 }
 
 div#nickname_modal {
-	width: 300px;
-	height: 300px;
+    box-shadow: 0px 0px 5px #111;
+	width: 400px;
 	position: absolute;
 	left: 50%;
 	top: 50%; 
-	margin-left: -150px;
+	margin-left: -200px;
 	margin-top: -150px;
 	z-index: 999999;
-	background-color: white;
+	background-color: #444;
+    color: #fff;
 	text-align: center;
 }
 
 input#nickname {
 	width: 95%;
+    padding: .5em;
+    background: #555;
+    color: #fff;
+    font-size: 1.2em;
+    border: none;
 }
 
 .metal {
