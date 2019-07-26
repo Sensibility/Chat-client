@@ -7,9 +7,11 @@ ws.onmessage = function (event) {
 	console.log("Message Incoming: ", event);
 
 	if (event.data instanceof Blob) {
+		var blob = event.data.slice(0,event.data.size,'audio/ogg');
+		blob.type = 'audio/ogg';
 		var speaker = document.getElementById('speaker');
 		console.log("Got a voip packet");
-		var src = URL.createObjectURL(event.data);
+		var src = URL.createObjectURL(blob);
 		speaker.src = src;
 		speaker.load();
 		speaker.play().then(() => {console.log("playback success!");}, () => {console.log("playback failure...");});
@@ -92,8 +94,9 @@ if (navigator.mediaDevices) {
 			source.connect(proc);
 
 			proc.onaudioprocess = function (e) {
-				console.log("collecting audio data...")
+				console.log("audio data collected");
 				var audio_data = e.inputBuffer.getChannelData(0)|| new Float32Array(2048);
+				console.log(audio_data);
 				sendVoipPacket(audio_data);
 			}
 
